@@ -35,11 +35,8 @@ app=Flask(__name__)
 #         # print("------------------------------------------------------------")
 #         return labels, cord
 
-@app.route('/')
-def home():
-    return 'hello world'
 
-@app.route('/pred', methods=['POST'])
+@app.route('/', methods=['GET'])
 def predict():
     frame = request.form.get('frame')
     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
@@ -47,7 +44,7 @@ def predict():
 
     # result=score_frame(frame)
 
-    return jsonify({'result':frame})
+    return jsonify(frame)
 
 
 
